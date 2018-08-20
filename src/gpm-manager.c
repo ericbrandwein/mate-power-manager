@@ -348,7 +348,7 @@ gpm_manager_is_inhibit_valid (GpmManager *manager, gboolean user_action, const c
  *
  * Changes the policy if required, setting brightness, display and computer
  * timeouts.
- * We have to make sure mate-screensaver disables screensaving, and enables
+ * We have to make sure gnome-screensaver disables screensaving, and enables
  * monitor DPMS instead when on batteries to save power.
  **/
 static void
@@ -392,7 +392,7 @@ gpm_manager_blank_screen (GpmManager *manager, GError **noerror)
 					       GPM_SETTINGS_LOCK_ON_BLANK_SCREEN);
 	if (do_lock) {
 		if (!gpm_screensaver_lock (manager->priv->screensaver))
-			egg_debug ("Could not lock screen via mate-screensaver");
+			egg_debug ("Could not lock screen via gnome-screensaver");
 	}
 	gpm_dpms_set_mode (manager->priv->dpms, GPM_DPMS_MODE_OFF, &error);
 	if (error) {
@@ -847,7 +847,7 @@ gpm_manager_update_dpms_throttle (GpmManager *manager)
 		if (manager->priv->screensaver_dpms_throttle_id != 0) {
 			gpm_screensaver_remove_throttle (manager->priv->screensaver, manager->priv->screensaver_dpms_throttle_id);
 		}
-		/* TRANSLATORS: this is the mate-screensaver throttle */
+		/* TRANSLATORS: this is the gnome-screensaver throttle */
 		manager->priv->screensaver_dpms_throttle_id = gpm_screensaver_add_throttle (manager->priv->screensaver, _("Display DPMS activated"));
 	}
 }
@@ -866,7 +866,7 @@ gpm_manager_update_ac_throttle (GpmManager *manager)
 		/* if throttle already exists then remove */
 		if (manager->priv->screensaver_ac_throttle_id != 0)
 			gpm_screensaver_remove_throttle (manager->priv->screensaver, manager->priv->screensaver_ac_throttle_id);
-		/* TRANSLATORS: this is the mate-screensaver throttle */
+		/* TRANSLATORS: this is the gnome-screensaver throttle */
 		manager->priv->screensaver_ac_throttle_id = gpm_screensaver_add_throttle (manager->priv->screensaver, _("On battery power"));
 	}
 }
@@ -931,7 +931,7 @@ gpm_manager_button_pressed_cb (GpmButton *button, const gchar *type, GpmManager 
 		g_free (message);
 	}
 
-	/* really belongs in mate-screensaver */
+	/* really belongs in gnome-screensaver */
 	if (g_strcmp0 (type, GPM_BUTTON_LOCK) == 0)
 		gpm_screensaver_lock (manager->priv->screensaver);
 

@@ -131,8 +131,8 @@ G_BEGIN_DECLS
 #define GPM_SETTINGS_INFO_PAGE_NUMBER			"info-page-number"
 #define GPM_SETTINGS_INFO_LAST_DEVICE			"info-last-device"
 
-/* mate-screensaver */
-#define GS_SETTINGS_SCHEMA				"org.mate.screensaver"
+/* gnome-screensaver */
+#define GS_SETTINGS_SCHEMA				"org.gnome.screensaver"
 #define GS_SETTINGS_PREF_LOCK_ENABLED			"lock-enabled"
 
 typedef enum {
